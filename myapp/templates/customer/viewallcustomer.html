@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>View All Customer</title>
+{% endblock %}
+
+{% block body %}
+<form name="viewAllCustomerForm" method="post" action="/customer/">
+	{% csrf_token %}
+	<h3 class="p-3">View All Customers</h3>
+	<div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table id="viewAllCustomerTable" class="table table-bordred table-striped table-hover">
+                    <thead>
+                        <th>Company Name</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Street</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zipcode</th>
+                    </thead>
+                    <tbody> 
+                        {% for customer in customers %}
+                        <tr>
+                            <td>{{ customer.CompanyName }}</td>
+                            <td>{{ customer.Name }}</td>
+                            <td>{{ customer.Email }}</td>
+                            <td>{{ customer.Phone }}</td>
+                            <td>{{ customer.Street }}</td>
+                            <td>{{ customer.City }}</td>
+                            <td>{{ customer.State }}</td>
+                            <td>{{ customer.ZipCode }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

@@ -5,10 +5,8 @@ from django.utils.datastructures import MultiValueDictKeyError
 
 # Create your views here.
 def view(request):
-	objects = Customer.objects.all()
-	for elt in objects:
-		print(elt.CustID)
-	return render(request, 'customer/addcustomer.html')
+	customers = Customer.objects.all()
+	return render(request, 'customer/viewallcustomer.html', {'customers': customers})
 
 
 def addCustomer(request):
@@ -31,3 +29,6 @@ def insert(request):
 						 State=state, ZipCode=zipcode, Email=email, Phone=phone, Type=quoteType, EmpID=employee)
 	addcustomerdetails.save()
 	return render(request, 'customer/addcustomer.html')
+
+def index(request):
+	return render(request, 'home.html')

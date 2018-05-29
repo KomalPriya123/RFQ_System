@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url("../fonts/glyphicons-halflings-regular.woff2"); }
+.main-wrapper .main-content {
+  background: #e5e5e5; }
+.main-wrapper .btn-primary {
+  background-color: tomato;
+  border: none; }
+  .main-wrapper .btn-primary:not(.disabled):active {
+    background-color: tomato;
+    border-color: tomato; }
+
+ul li {
+  border-bottom: 1px solid #c3c3c3; }
+  ul li a {
+    color: inherit;
+    display: block;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 10px; }
+    ul li a:hover, ul li a.active {
+      background-color: tomato;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s; }
+    ul li a.dropdown-toggle::after {
+      float: right;
+      margin: 10px; }
+ul ul li a {
+  font-size: 0.9em;
+  font-weight: 400;
+  padding-left: 30px; }
+
+/*# sourceMappingURL=app.css.map */
