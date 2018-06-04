@@ -32,3 +32,18 @@ class Customer(models.Model):
 
 	class Meta:
 		db_table ="customer"
+
+
+class Part(models.Model):
+	PartID = models.AutoField(primary_key=True) 
+	Name = models.CharField(max_length=255)
+	Barcode = models.CharField(max_length=12)
+	Description = models.CharField(max_length=255)
+	QuantityAvail = models.CharField(max_length=255)
+	Price = models.CharField(max_length=255)
+	Manufacturer = models.CharField(max_length=255)
+	Image = models.CharField(max_length=255)
+	Comments = models.CharField(max_length=255)
+
+	class Meta:
+		db_table ="part"

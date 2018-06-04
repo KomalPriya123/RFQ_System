@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2018 at 05:34 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Jun 04, 2018 at 08:06 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -149,7 +149,7 @@ CREATE TABLE `customer` (
   `State` varchar(50) NOT NULL,
   `ZipCode` varchar(50) NOT NULL,
   `Email` varchar(255) NOT NULL,
-  `Phone` int(11) NOT NULL,
+  `Phone` varchar(11) NOT NULL,
   `Type` int(11) NOT NULL,
   `EmpID` int(11) NOT NULL,
   `updated_at` varchar(50) DEFAULT NULL
@@ -160,13 +160,14 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`CustID`, `CompanyName`, `Password`, `Name`, `Street`, `City`, `State`, `ZipCode`, `Email`, `Phone`, `Type`, `EmpID`, `updated_at`) VALUES
-(5, 'abc', '1001', 'Priya', '585 Thornhill dr, apt 309', 'CAROL STREAM', 'Illinois', '60188', 'priyamukherjee024@gmail.com', 2147483647, 2, 1, NULL),
-(7, 'cvs', '1001', 'Komal Thakkar', 'st. charles Rd', 'Naperville', 'IL', '60987', 'km@gmail.com', 2147483647, 1, 1, NULL),
-(10, 'abc', '1001', 'Priya', '585 Thornhill dr, apt 309', 'CAROL STREAM', 'Illinois', '60188', 'priyamukherjee024@gmail.com', 2147483647, 2, 1, NULL),
-(12, 'walgreen', '1001', 'Olivia William', 'Northbrook', 'CAROL STREAM', 'Illinois', '60188', 'olivia@gmail.com', 2147483647, 2, 1, NULL),
-(13, 'liuo', '1001', 'guiuhkh', 'yiyn', 'lkjkh', 'lkjl', '98798', 'ouou@gmail.com', 2147483647, 1, 1, NULL),
-(14, 'cvs', '1001', 'Komal Thakkar', '585 Thornhill dr, apt 309', 'CAROL STREAM', 'Illinois', '60188', 'km@gmail.com', 2147483647, 2, 1, NULL),
-(15, 'cvs', '1001', 'Komal Thakkar', '585 Thornhill dr, apt 309', 'CAROL STREAM', 'Illinois', '60188', 'km@gmail.com', 2147483647, 2, 1, NULL);
+(5, 'abc', '1001', 'Priya', '585 Thornhill dr, apt 309', 'CAROL STREAM', 'Illinois', '60188', 'priyamukherjee@gmail.com', '2147483647', 2, 1, NULL),
+(7, 'cvs', '1001', 'Komal Thakkar', 'st. charles Rd', 'Naperville', 'IL', '60987', 'km@gmail.com', '952316650', 2, 1, NULL),
+(10, 'abc', '1001', 'Priya', '585 Thornhill dr, apt 309', 'CAROL STREAM', 'Illinois', '60188', 'priyamukherjee024@gmail.com', '3979878234', 2, 1, NULL),
+(12, 'walgreen', '1001', 'Olivia William', 'Northbrook', 'CAROL STREAM', 'Illinois', '60188', 'olivia@gmail.com', '2147483647', 2, 1, NULL),
+(13, 'liuo', '1001', 'guiuhkh', 'yiyn', 'lkjkh', 'lkjl', '98798', 'ouou@gmail.com', '2147483647', 1, 1, NULL),
+(14, 'cvs', '1001', 'Komal Thakkar', '585 Thornhill dr, apt 309', 'CAROL STREAM', 'Illinois', '60188', 'km@gmail.com', '2147483647', 2, 1, NULL),
+(15, 'cvs', '1001', 'Komal Thakkar', '585 Thornhill dr, apt 309', 'CAROL STREAM', 'Illinois', '60188', 'km@gmail.com', '2147483647', 2, 1, NULL),
+(20, 'NORTHERN ILLINOIS UNIVERSITY (NIU)', '1001', 'Komal', '1512 W LINCOLN HWY', 'DeKalb', 'Illinois', '60115', 'komalthakkar@gmail.com', '989875455', 2, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -300,10 +301,21 @@ CREATE TABLE `part` (
   `QuantityAvail` varchar(255) NOT NULL,
   `Price` varchar(255) NOT NULL,
   `Manufacturer` varchar(255) NOT NULL,
-  `Image` blob,
+  `Image` varchar(255) DEFAULT NULL,
   `Comments` varchar(255) DEFAULT NULL,
   `updated_at` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `part`
+--
+
+INSERT INTO `part` (`PartID`, `Name`, `Barcode`, `Description`, `QuantityAvail`, `Price`, `Manufacturer`, `Image`, `Comments`, `updated_at`) VALUES
+(1, 'Seat', '5487844', 'Business Coach', '451', '100', 'Boeing Business Jets', 'business-coach-1317868_1280.jpg', NULL, NULL),
+(2, 'Turbine', '5931216', '', '623', '1250', 'Cessna Aircraft Company', 'turbine-590354_1280.jpg', NULL, NULL),
+(3, 'Wheels', '5131216', '', '342', '500', 'Dassault Falcon', 'main-landing-gear-1456716_1280.jpg', NULL, NULL),
+(4, 'Propeller', '2131216', '', '245', '650', 'Gulfstream Aerospace', 'propeller-3356867_1280.jpg', NULL, NULL),
+(5, 'Engine', '5031216', '', '560', '800', 'Gulfstream Aerospace', 'engine-184298_1280.png', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -536,7 +548,7 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `CustID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `django_admin_log`
@@ -566,7 +578,7 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `part`
 --
 ALTER TABLE `part`
-  MODIFY `PartID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `quotetype`

@@ -5,44 +5,44 @@
 {% endblock %}
 
 {% block body %}
-	<form name="addCustomerForm" method="post">
+	<form name="updateCustomerForm" method="post">
 		{% csrf_token %}
-		<h3 class="p-3">Add New Customer</h3>
+		<h3 class="p-3">Update Customer</h3>
+		<div class="form-group col-sm-6">
+			<label>Customer ID</label>
+			<input type="text" name="custID" value="{{ customer.CustID }}" class="form-control" readonly>
+		</div>
 		<div class="form-group col-sm-6">
 			<label>Company Name</label>
-			<input type="text" name="companyName" value="" class="form-control" required>
+			<input type="text" name="companyName" value="{{ customer.CompanyName }}" class="form-control" required>
 		</div>
-		<!--div class="form-group col-sm-6">
-			<label>First Name</label>
-			<input type="text" name="firstName" value="" class="form-control" required>
-		</div-->
 		<div class="form-group col-sm-6">
 			<label>Name</label>
-			<input type="text" name="name" value="" class="form-control" required>
+			<input type="text" name="name" value="{{ customer.Name }}" class="form-control" required>
 		</div>
 		<div class="form-group col-sm-6">
 			<label>Email</label>
-			<input type="email" name="email" value="" class="form-control" required>
+			<input type="email" name="email" value="{{ customer.Email }}" class="form-control" required>
 		</div>
 		<div class="form-group col-sm-6">
 			<label>Phone</label>
-			<input type="number" name="phone" value="" class="form-control" required>
+			<input type="number" name="phone" value="{{ customer.Phone }}" class="form-control" required>
 		</div>
 		<div class="form-group col-sm-6">
 			<label>Street</label>
-			<input type="text" name="street" value="" class="form-control" required>
+			<input type="text" name="street" value="{{ customer.Street }}" class="form-control" required>
 		</div>
 		<div class="form-group col-sm-6">
 			<label>City</label>
-			<input type="text" name="city" value="" class="form-control" required>
+			<input type="text" name="city" value="{{ customer.City }}" class="form-control" required>
 		</div>
 		<div class="form-group col-sm-6">
 			<label>State</label>
-			<input type="text" name="state" value="" class="form-control" required>
+			<input type="text" name="state" value="{{ customer.State }}" class="form-control" required>
 		</div>
 		<div class="form-group col-sm-6">
 			<label>Zipcode</label>
-			<input type="number" name="zipcode" value="" class="form-control" required>
+			<input type="number" name="zipcode" value="{{ customer.ZipCode }}" class="form-control" required>
 		</div>
 		<div class="form-group col-sm-6">
 			<label>Quote Type</label>
@@ -54,7 +54,7 @@
 		<div class="row">
 			<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<button type="reset" class="hidden btn btn-default col-lg-offset-5 col-lg-3 col-md-offset-5 col-md-3 col-sm-offset-5 col-sm-3 col-xs-offset-5 col-xs-3 float-left" data-dismiss="modal">Reset</button>
-				<button type="submit" class="btn btn-primary col-lg-3 col-md-3 col-sm-offset-1 col-sm-3 col-xs-3 float-right">Add</button>
+				<button type="submit" class="btn btn-primary col-lg-3 col-md-3 col-sm-offset-1 col-sm-3 col-xs-3 float-right">Update</button>
 			</div>
 		</div>
 	</form>

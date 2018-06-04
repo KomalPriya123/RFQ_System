@@ -17,10 +17,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
-                        <th>Street</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Zipcode</th>
+                        <th>Update</th>
                     </thead>
                     <tbody> 
                         {% for customer in customers %}
@@ -29,10 +26,7 @@
                             <td>{{ customer.Name }}</td>
                             <td>{{ customer.Email }}</td>
                             <td>{{ customer.Phone }}</td>
-                            <td>{{ customer.Street }}</td>
-                            <td>{{ customer.City }}</td>
-                            <td>{{ customer.State }}</td>
-                            <td>{{ customer.ZipCode }}</td>
+                            <td><a href="{% url 'edit_customer' customer.CustID %}"><button type="button" class="btn btn-primary"><span class="fa fa-pencil"></span> Edit</button></a></td>
                         </tr>
                         {% endfor %}
                     </tbody>
